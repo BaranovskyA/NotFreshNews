@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
 use App\News;
-use App\User;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -12,10 +10,16 @@ class NewsController extends Controller
     public function index(Request $request)
     {
         $user = auth()->user();
-        $newss = new News();
-        $newss = $newss->all();
+
         $searchingCategory = $request['categories'] ?? ' ';
         $statusSearch = $searchingCategory == ' ' ? 'all' : 'notAll';
+
+        if ($searchingCategory == ' ')
+            $newss = News::paginate(5);
+        else {
+            $newss = new News();
+            $newss = $newss->all();
+        }
 
         return view('news.index', compact('user', 'newss', 'searchingCategory', 'statusSearch'));
     }

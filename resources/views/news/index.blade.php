@@ -85,8 +85,6 @@
                 </div>
             @endif
         @endif
-
-
     @empty
         <div class="alert alert-secondary container">
             Ничего нет :(
