@@ -30,17 +30,14 @@ $update = isset($news);
 
             <div class="form-group">
                 <label for="category">Категории (Перечесление через запятую без пробела)</label>
-                <input class="form-control" type="text" name="category_list" id="category" placeholder="Категории" value="{{ old('category_list') ?? ($news->category_list ?? '') }}">
+                <input class="form-control" type="text" name="category_list" id="category" placeholder="Категории..." value="{{ old('category_list') ?? ($news->category_list ?? '') }}">
             </div>
+
 
             <div class="form-group">
-                @error('status')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-                @enderror
+                <label for="img">URL изображения</label>
+                <input class="form-control" type="text" id="img" name="img" placeholder="URL изображения..." value="{{ old('img') ?? ($news->img ?? '') }}">
             </div>
-
 
             <button class="btn btn-success">{{ $update ? "Обновить" : "Добавить" }}</button>
 

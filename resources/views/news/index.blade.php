@@ -43,7 +43,16 @@
                 </h1>
             </div>
 
-            <h2 class="container text-center mb-5 border card card-body ">{!! substr($news->content, 0, strpos($news->content, '<br>')) !!}.. </h2>
+
+            <div class="container border card card-body">
+                @if($news->img != null)
+                    <div class="w-100 h-100 mt-2 mb-2">
+                        <img src="{{ $news->img }}" style="width: 100%; height: 100%;">
+                    </div>
+                @endif
+
+                <h2 class="text-center">{!! substr($news->content, 0, strpos($news->content, '<br>')) !!}...</h2>
+            </div>
 
             @if($news->category_list != null)
                 <div class="container card card-header mt-3">
@@ -77,7 +86,15 @@
                 </h1>
             </div>
 
-            <h2 class="container text-center mb-5 border card card-body ">{!! substr($news->content, 0, strpos($news->content, '<br>')) !!}...</h2>
+            <div class="container border card card-body">
+                @if($news->img != null)
+                    <div class="w-100 h-100 mt-2 mb-2">
+                        <img src="{{ $news->img }}" style="width: 100%; height: 100%;">
+                    </div>
+                @endif
+
+                <h2 class="text-center">{!! substr($news->content, 0, strpos($news->content, '<br>')) !!}...</h2>
+            </div>
 
             @if($news->category_list != null)
                 <div class="container card card-header mt-3">

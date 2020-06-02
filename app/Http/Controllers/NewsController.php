@@ -17,8 +17,7 @@ class NewsController extends Controller
         if ($searchingCategory == ' ')
             $newss = News::paginate(5);
         else {
-            $newss = new News();
-            $newss = $newss->all();
+            $newss = News::all();
         }
 
         return view('news.index', compact('user', 'newss', 'searchingCategory', 'statusSearch'));
@@ -72,7 +71,8 @@ class NewsController extends Controller
         $rules = [
             'title' => 'required|min:5|max:100|unique:news',
             'content' => 'nullable',
-            'category_list' => 'required'
+            'category_list' => 'required',
+            'img' => 'nullable'
         ];
 
         if($new)
