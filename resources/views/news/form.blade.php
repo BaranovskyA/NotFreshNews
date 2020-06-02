@@ -19,23 +19,23 @@ $update = isset($news);
                 <label for="title">Заголовок <span class="text-danger">*</span></label>
                 <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" id="title" placeholder="Заголовок..." value="{{ old('title') ?? ($news->title ?? '') }}">
                 @error('title')
-                <div class="invalid-feedback">{{ $message }}</div>
+                    <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
 
             <div class="form-group">
-                <label for="content">Содержание</label>
+                <label for="content">Содержание ( Указание в конце строки тега < br > будет означать абзац, отображаемый на главной. По умолчанию: "..." )</label>
                 <textarea class="form-control" name="content" id="content" placeholder="Содержание...">{{ old('content') ?? ($news->content ?? '') }}</textarea>
             </div>
 
             <div class="form-group">
-                <label for="category">Категории (Перечесление через запятую без пробела)</label>
+                <label for="category">Категории ( Перечесление через запятую без пробела )</label>
                 <input class="form-control" type="text" name="category_list" id="category" placeholder="Категории..." value="{{ old('category_list') ?? ($news->category_list ?? '') }}">
             </div>
 
 
             <div class="form-group">
-                <label for="img">URL изображения</label>
+                <label for="img">URL изображения ( Можно указывать несколько через запятую )</label>
                 <input class="form-control" type="text" id="img" name="img" placeholder="URL изображения..." value="{{ old('img') ?? ($news->img ?? '') }}">
             </div>
 

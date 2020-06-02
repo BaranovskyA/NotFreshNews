@@ -29,10 +29,14 @@
     <div class="mb-3"></div>
 
     <div class="card card-body container">
-        @if($news->img != null)
-            <div class="w-100 h-100 mt-2 mb-2">
-                <img src="{{ $news->img }}" style="width: 100%; height: 100%;">
-            </div>
+        @if($imgArr != null)
+
+            @foreach($imgArr as $img)
+                <div class="w-100 h-100 mt-2 mb-2">
+                    <img src="{{ $img }}" style="width: 100%; height: 100%;">
+                </div>
+            @endforeach
+
         @endif
 
         <p class="lead mb-0">{!! $news->content !!}</p>

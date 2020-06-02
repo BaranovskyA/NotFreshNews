@@ -16,9 +16,10 @@ class NewsController extends Controller
 
         if ($searchingCategory == ' ')
             $newss = News::paginate(5);
-        else {
+        else
             $newss = News::all();
-        }
+
+
 
         return view('news.index', compact('user', 'newss', 'searchingCategory', 'statusSearch'));
     }
@@ -43,7 +44,8 @@ class NewsController extends Controller
     public function show(News $news)
     {
         $this->authorize('view', $news);
-        return view('news.show', compact('news'));
+        $imgArr = explode(',', $news->img);
+        return view('news.show', compact('news', 'imgArr'));
     }
 
     public function edit(News $news)

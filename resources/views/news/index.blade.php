@@ -18,6 +18,11 @@
     </div>
 
     @forelse($newss as $news)
+
+        <?php
+            $imgArr = explode(',', $news->img);
+        ?>
+
         @if($statusSearch == 'all')
             <div class="border container text-break flex-wrap mt-5 card card-header">
                 <h4 class="text-secondary text-right position-relative mt-1">{{ $news->updated_at->diffForHumans( ) }}</h4>
@@ -43,12 +48,13 @@
                 </h1>
             </div>
 
-
             <div class="container border card card-body">
-                @if($news->img != null)
-                    <div class="w-100 h-100 mt-2 mb-2">
-                        <img src="{{ $news->img }}" style="width: 100%; height: 100%;">
-                    </div>
+                @if($imgArr != null)
+                    @foreach($imgArr as $img)
+                        <div class="w-100 h-100 mt-2 mb-2">
+                            <img src="{{ $img }}" style="width: 100%; height: 100%;">
+                        </div>
+                    @endforeach
                 @endif
 
                 <h2 class="text-center">{!! substr($news->content, 0, strpos($news->content, '<br>')) !!}...</h2>
@@ -87,10 +93,12 @@
             </div>
 
             <div class="container border card card-body">
-                @if($news->img != null)
-                    <div class="w-100 h-100 mt-2 mb-2">
-                        <img src="{{ $news->img }}" style="width: 100%; height: 100%;">
-                    </div>
+                @if($imgArr != null)
+                    @foreach($imgArr as $img)
+                        <div class="w-100 h-100 mt-2 mb-2">
+                            <img src="{{ $img }}" style="width: 100%; height: 100%;">
+                        </div>
+                    @endforeach
                 @endif
 
                 <h2 class="text-center">{!! substr($news->content, 0, strpos($news->content, '<br>')) !!}...</h2>
