@@ -29,7 +29,7 @@
     <div class="mb-3"></div>
 
     <div class="card card-body container">
-        @if($imgArr != null)
+        @if($imgArr[0] != "")
 
             @foreach($imgArr as $img)
                 <div class="w-100 h-100 mt-2 mb-2">

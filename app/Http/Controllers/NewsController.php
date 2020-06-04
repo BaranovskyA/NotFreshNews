@@ -19,8 +19,6 @@ class NewsController extends Controller
         else
             $newss = News::all();
 
-
-
         return view('news.index', compact('user', 'newss', 'searchingCategory', 'statusSearch'));
     }
 

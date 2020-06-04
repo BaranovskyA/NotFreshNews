@@ -49,7 +49,7 @@
             </div>
 
             <div class="container border card card-body">
-                @if($imgArr != null)
+                @if($imgArr[0] != "")
                     @foreach($imgArr as $img)
                         <div class="w-100 h-100 mt-2 mb-2">
                             <img src="{{ $img }}" style="width: 100%; height: 100%;">
@@ -93,7 +93,7 @@
             </div>
 
             <div class="container border card card-body">
-                @if($imgArr != null)
+                @if($imgArr[0] != "")
                     @foreach($imgArr as $img)
                         <div class="w-100 h-100 mt-2 mb-2">
                             <img src="{{ $img }}" style="width: 100%; height: 100%;">
@@ -115,4 +115,10 @@
             Ничего нет :(
         </div>
     @endforelse
+
+    @if($searchingCategory == ' ')
+        <div class="d-flex justify-content-center mt-3">
+            {{ $newss->links() }}
+        </div>
+    @endif
 @endsection
