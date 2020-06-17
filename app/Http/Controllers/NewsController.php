@@ -15,7 +15,7 @@ class NewsController extends Controller
         $statusSearch = $searchingCategory == ' ' ? 'all' : 'notAll';
 
         if ($searchingCategory == ' ')
-            $newss = News::paginate(5);
+            $newss = News::paginate(3);
         else
             $newss = News::all();
 
